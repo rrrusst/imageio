@@ -141,6 +141,7 @@ import platform
 import threading
 import subprocess as sp
 import imageio_ffmpeg
+from .deviceslist import DevicesList
 
 import numpy as np
 
@@ -720,10 +721,7 @@ def parse_device_names(ffmpeg_output):
     # prefer friendly names, use alt name if two cams have same friendly name
     device_names2 = []
     for friendly_name, alt_name in device_names:
-        if friendly_name not in device_names2:
-            device_names2.append(friendly_name)
-        elif alt_name:
-            device_names2.append(alt_name)
-        else:
-            device_names2.append(friendly_name)  # duplicate, but not much we can do
+        alt_name = alt_name.replace("^", "&")
+        device_names2.append(alt_name)
+    DevicesList.device_list = device_names2
     return device_names2
