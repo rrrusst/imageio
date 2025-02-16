@@ -721,7 +721,7 @@ def parse_device_names(ffmpeg_output):
     # prefer friendly names, use alt name if two cams have same friendly name
     device_names2 = []
     for friendly_name, alt_name in device_names:
-        alt_name = alt_name.replace("^", "&")
+        alt_name = alt_name.replace("^", "")
         device_names2.append(alt_name)
     DevicesList.device_list = device_names2
     return device_names2
