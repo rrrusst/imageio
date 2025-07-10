@@ -1,4 +1,5 @@
 # IMAGEIO
+### This fork adds a new imageio/plugins/deviceslist.py which contains a DevicesList class to store the list of devices detected by imageio. It also modifies the imageio/plugins/ffmpeg.py parse_device_names() to store a list of USB Device Alternate Names (alt_name) of detected devices in the DevicesList class, and set the return value of the function to that list.
 
 [![CI](https://github.com/imageio/imageio/workflows/CI/badge.svg)](https://github.com/imageio/imageio/actions/workflows/ci.yml)
 [![CD](https://github.com/imageio/imageio/workflows/CD/badge.svg)](https://github.com/imageio/imageio/actions/workflows/cd.yml)
